@@ -306,4 +306,6 @@ texinfo_documents = [
 
 
 # Example configuration for intersphinx: refer to the Python standard library.
-intersphinx_mapping = {'https://docs.python.org/': None}
+intersphinx_mapping = {
+    't3coreapi': ('https://docs.typo3.org/typo3cms/CoreApiReference/', None),
+}

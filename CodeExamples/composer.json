@@ -1,0 +1,46 @@
+{
+    "repositories": [
+        {
+            "type": "path",
+            "url": "localPackages/*"
+        },
+        {
+            "type": "composer",
+            "url": "https://composer.typo3.org/"
+        }
+    ],
+    "name": "website/typo3-extension-workshop",
+    "description": "Example TYPO3 installation for workshop",
+    "license": "GPL-2.0-or-later",
+    "require": {
+        "helhum/typo3-console": "^4.9.3 || ^5.2",
+        "helhum/typo3-secure-web": "^0.2.7",
+        "typo3-console/composer-auto-commands": "^0.2.0",
+        "typo3/cms-about": "^8.7.17",
+        "typo3/cms-belog": "^8.7.17",
+        "typo3/cms-beuser": "^8.7.17",
+        "typo3/cms-fluid-styled-content": "^8.7.17",
+        "typo3/cms-info": "^8.7.17",
+        "typo3/cms-info-pagetsconfig": "^8.7.17",
+        "typo3/cms-rte-ckeditor": "^8.7.17",
+        "typo3/cms-setup": "^8.7.17",
+        "typo3/cms-t3editor": "^8.7.17",
+        "typo3/cms-tstemplate": "^8.7.17",
+        "workshop/example-extension": "@dev"
+    },
+    "require-dev": {
+        "typo3/cms-lowlevel": "^8.7.17"
+    },
+    "extra": {
+        "typo3/cms": {
+            "root-dir": "private",
+            "web-dir": "public"
+        },
+        "helhum/typo3-console": {
+            "comment": "This option is not needed ay more for helhum/typo3-console 5.x",
+            "install-extension-dummy": false
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
