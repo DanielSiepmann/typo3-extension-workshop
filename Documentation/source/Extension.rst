@@ -20,7 +20,7 @@ Nowadays most installations also have a `site_` or `sitepackage` extensions, whi
 encapsulates the systems configuration and resources like assets and templates. Thus
 an TYPO3 extension is the same as an composer package.
 
-In this workshop we will concentrate of a "typical" extension that will provide a
+In this workshop we will concentrate on a "typical" extension that will provide a
 plugin and custom record types. This can be installed into any compatible TYPO3
 installation. A new record type will be added, which can be edited in the TYPO3
 backend. Also a new plugin will be added which can be added as a content element and

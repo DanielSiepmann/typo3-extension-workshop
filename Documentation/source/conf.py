@@ -309,3 +309,10 @@ texinfo_documents = [
 intersphinx_mapping = {
     't3coreapi': ('https://docs.typo3.org/typo3cms/CoreApiReference/', None),
 }
+
+# Allow inline PHP highlighting
+# See: https://github.com/guzzle/guzzle/blob/master/docs/conf.py
+
+from sphinx.highlighting import lexers
+from pygments.lexers.web import PhpLexer
+lexers['php'] = PhpLexer(startinline=True, linenos=1)
