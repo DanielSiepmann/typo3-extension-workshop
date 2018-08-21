@@ -44,6 +44,15 @@ Do not forget to remote the ``return 'Hello world!';`` from our controller.
 
 We should now see our "Hello World!".
 
+Sections
+--------
+
+ViewHelper
+----------
+
+Partials and Layouts
+--------------------
+
 Configuration
 -------------
 

@@ -15,4 +15,9 @@ $EM_CONF['example_extension'] = [
             'php' => '7.0.0-7.2.999',
         ],
     ],
+    'autoload' => [
+        'psr-4' => [
+            'Workshop\\ExampleExtension\\' => 'Classes',
+        ]
+    ],
 ];

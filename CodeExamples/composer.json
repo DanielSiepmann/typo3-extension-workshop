@@ -37,7 +37,7 @@
             "web-dir": "public"
         },
         "helhum/typo3-console": {
-            "comment": "This option is not needed ay more for helhum/typo3-console 5.x",
+            "comment": "This option is not needed any more for helhum/typo3-console 5.x",
             "install-extension-dummy": false
         }
     },
