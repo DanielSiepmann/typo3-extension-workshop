@@ -31,6 +31,6 @@ class ExampleController extends ActionController
         // Comment the code out, to use fluid template from
         // "Resources/Private/Templates/Example/Example.html"
 
-        return 'Hello world!';
+        // return 'Hello world!';
     }
 }
