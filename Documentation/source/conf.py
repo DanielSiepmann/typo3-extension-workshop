@@ -308,6 +308,7 @@ texinfo_documents = [
 # Example configuration for intersphinx: refer to the Python standard library.
 intersphinx_mapping = {
     't3coreapi': ('https://docs.typo3.org/typo3cms/CoreApiReference/', None),
+    't3extbasebook': ('https://docs.typo3.org/typo3cms/ExtbaseFluidBook/', None),
 }
 
 # Allow inline PHP highlighting

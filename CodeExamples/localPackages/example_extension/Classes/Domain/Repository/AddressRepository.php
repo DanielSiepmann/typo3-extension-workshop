@@ -1,6 +1,6 @@
 <?php
 
-namespace Workshop\ExampleExtension\Controller;
+namespace Workshop\ExampleExtension\Domain\Repository;
 
 /*
  * Copyright (C) 2018 Daniel Siepmann <coding@daniel-siepmann.de>
@@ -21,16 +21,9 @@ namespace Workshop\ExampleExtension\Controller;
  * 02110-1301, USA.
  */
 
-use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
+use TYPO3\CMS\Extbase\Persistence\Repository;
 
-class ExampleController extends ActionController
+class AddressRepository extends Repository
 {
-    public function exampleAction()
-    {
-        // Use the code below, to output the string.
-        // Comment the code out, to use fluid template from
-        // "Resources/Private/Templates/Example/Example.html"
 
-        return 'Hello world!';
-    }
 }
