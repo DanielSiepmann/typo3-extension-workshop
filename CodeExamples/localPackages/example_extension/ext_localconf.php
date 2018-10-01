@@ -8,4 +8,15 @@
             'Example' => 'example'
         ]
     );
+
+    \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
+        'Workshop.ExampleExtension',
+        'Address',
+        [
+            'Address' => 'index, edit, update'
+        ],
+        [
+            'Address' => 'update'
+        ]
+    );
 })();

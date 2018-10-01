@@ -55,9 +55,19 @@ class Address extends AbstractEntity
      */
     protected $country;
 
+    public function setCompanyName(string $companyName)
+    {
+        $this->companyName = $companyName;
+    }
+
     public function getCompanyName(): string
     {
         return $this->companyName;
+    }
+
+    public function setStreet(string $street)
+    {
+        $this->street = $street;
     }
 
     public function getStreet(): string
@@ -65,9 +75,19 @@ class Address extends AbstractEntity
         return $this->street;
     }
 
+    public function setHouseNumber(string $houseNumber)
+    {
+        $this->houseNumber = $houseNumber;
+    }
+
     public function getHouseNumber(): string
     {
         return $this->houseNumber;
+    }
+
+    public function setZip(string $zip)
+    {
+        $this->zip = $zip;
     }
 
     public function getZip(): string
@@ -75,9 +95,19 @@ class Address extends AbstractEntity
         return $this->zip;
     }
 
+    public function setCity(string $city)
+    {
+        $this->city = $city;
+    }
+
     public function getCity(): string
     {
         return $this->city;
+    }
+
+    public function setCountry(string $country)
+    {
+        $this->country = $country;
     }
 
     public function getCountry(): string

@@ -90,7 +90,7 @@ Each model is a PHP class structure like:
 .. literalinclude:: ../../CodeExamples/localPackages/example_extension/Classes/Domain/Model/Address.php
    :language: php
    :linenos:
-   :lines: 1-4,24-32,58-61,87
+   :lines: 1-4,24-32,63-66,87
 
 Repository
 ----------
@@ -121,24 +121,10 @@ Controller
 In order to provide records in form of models to our template, we first need an
 instance of our repository:
 
-.. code-block:: php
+.. literalinclude:: ../../CodeExamples/localPackages/example_extension/Classes/Controller/AddressController.php
+   :language: php
    :linenos:
-
-   use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
-   use Workshop\ExampleExtension\Domain\Repository\AddressRepository;
-
-   class ExampleController extends ActionController
-   {
-       /**
-        * @var AddressRepository
-        */
-       protected $addressRepository;
-
-       public function __construct(AddressRepository $addressRepository)
-       {
-           $this->addressRepository = $addressRepository;
-       }
-   }
+   :lines: 1-4, 24-38,66
 
 With the above code we only can create instances of the controller if an instance of
 the Repository is provided.
@@ -151,16 +137,10 @@ work in other PHP Frameworks and without any Dependency Injection at all.
 We then can call the accordingly method to fetch records, which then can be assigned
 to the view:
 
-.. code-block:: php
+.. literalinclude:: ../../CodeExamples/localPackages/example_extension/Classes/Controller/AddressController.php
+   :language: php
    :linenos:
-
-   class ExampleController extends ActionController
-   {
-       public function exampleAction()
-       {
-           $this->view->assign('addresses', $this->addressRepository->findAll());
-       }
-   }
+   :lines: 28-29,40-43,66
 
 The ``AddressRepository`` extends the base ``Repository`` class and inherits some
 methods, e.g. ``findAll``.
@@ -170,19 +150,12 @@ Template
 
 With our records in our template, we can iterate over them to display them.
 
-:file:`Resources/Private/Templates/Example/Example.html`:
+:file:`Resources/Private/Templates/Address/Index.html`:
 
-.. code-block:: html
+.. literalinclude:: ../../CodeExamples/localPackages/example_extension/Resources/Private/Templates/Address/Index.html
+   :language: html
    :linenos:
-
-   <f:for each="{addresses}" as="address">
-       <h2>{address.companyName}</h2>
-       <address>
-           {address.street} {address.houseNumber}
-           {address.zip} {address.city}
-           {address.country}
-       </address>
-   </f:for>
+   :lines: 1-7,10
 
 Configure storage pid
 ---------------------

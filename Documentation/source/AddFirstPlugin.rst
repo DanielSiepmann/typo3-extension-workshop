@@ -31,8 +31,15 @@ available as a new option for the content element *Insert Plugin*.
 This is done with the following code in file
 :file:`Configuration/TCA/Overrides/tt_content.php`:
 
-.. literalinclude:: ../../CodeExamples/localPackages/example_extension/Configuration/TCA/Overrides/tt_content.php
-   :language: php
+.. code-block:: php
+
+   (function () {
+       \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
+           'Workshop.ExampleExtension',
+           'pluginkey',
+           'Example Plugin'
+       );
+   })();
 
 Configure Plugin for Frontend
 -----------------------------
@@ -44,8 +51,18 @@ Configure Plugin for Frontend
 To actually call some PHP Code when the content element is rendered, we need to
 configure the plugin in :file:`ext_localconf.php`:
 
-.. literalinclude:: ../../CodeExamples/localPackages/example_extension/ext_localconf.php
-   :language: php
+.. code-block:: php
+
+   (function () {
+      \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
+         'Workshop.ExampleExtension',
+         'pluginkey',
+         [
+               'Example' => 'example'
+         ]
+      );
+   })();
+
 
 Write necessary Code
 --------------------

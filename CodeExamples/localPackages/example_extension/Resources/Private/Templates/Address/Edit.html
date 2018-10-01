@@ -1,0 +1,24 @@
+<h3>Editing: {address.companyName}</h3>
+
+<f:form action="update" object="{address}" name="address">
+    <f:for each="{
+        0: 'companyName',
+        1: 'street',
+        2: 'houseNumber',
+        3: 'zip',
+        4: 'city',
+        5: 'country'
+    }" as="propertyName">
+        <p>
+            <label for="{propertyName}">
+                {f:translate(id: 'labels.{propertyName}')}
+            </label>
+            <br>
+            <f:form.textfield property="{propertyName}" id="{propertyName}" />
+            <br>
+        </p>
+    </f:for>
+
+    <br>
+    <f:form.submit value="Update" />
+</f:form>

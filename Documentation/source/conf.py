@@ -317,3 +317,7 @@ intersphinx_mapping = {
 from sphinx.highlighting import lexers
 from pygments.lexers.web import PhpLexer
 lexers['php'] = PhpLexer(startinline=True, linenos=1)
+
+# Add custom css
+def setup(app):
+    app.add_stylesheet('css/custom.css')
