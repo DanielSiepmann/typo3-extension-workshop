@@ -172,3 +172,119 @@ Validation
 
    Prevent invalid data.
 
+Up till now, the user could provide any text into any property. There was no
+validation whether a zip is actual valid.
+
+Adding this is done within either the model, or the controller.
+
+Within Controller
+^^^^^^^^^^^^^^^^^
+
+Sparely used, this makes sense if you do not use models at all or use the same model
+with different validation rules.
+
+The process is the same as within a model, just the annotations are added to the
+PHPDoc of the corresponding action.
+
+We will not cover this, instead we use validation within model.
+
+Within Model
+^^^^^^^^^^^^
+
+Each property already has a type annotation::
+
+   /**
+    * @var string
+    */
+
+By adding one, or multiple, ``@validate`` annotations, these properties get
+validated::
+
+   /**
+    * @var string
+    * @validate NotEmpty
+    */
+
+Extbase provides some validators our of the box, all available within ``typo3/sysext/extbase/Classes/Validation/Validator``:
+
+* AlphanumericValidator
+* EmailAddressValidator
+* NotEmptyValidator
+* NumberRangeValidator
+* RawValidator
+* RegularExpressionValidator
+* StringLengthValidator
+* TextValidator
+
+Also validators for PHP Type like ``String`` or ``DateTime`` are provided which are
+auto added based on ``@var`` annotation.
+
+Let's say a zip only consists of integers and is exactly 5 integers long, like in
+Germany. One or more leading 0 are allowed, we therefore will not use the PHP type
+``integer`` but ``string``. A possible validation might look like::
+
+   /**
+    * @var string
+    * @validate RegularExpression(regularExpression = '/^[0-9]{5}$/')
+    */
+   protected $zip;
+
+Display validation errors
+-------------------------
+
+Nearly finished, we can no longer save invalid records. Still the user does not get
+any information about what's wrong. Fluid by default will add the css class
+``f3-form-error`` to all inputs with an error. So one could style this css class:
+
+.. code-block:: css
+
+   .f3-form-error {
+       border: solid 5px #cd2323;
+   }
+
+This way at least it's clear which fields fail, but not why. We therefore use another
+ViewHelper to add the validation errors to each field. As we have to add the same
+markup for each field, we will put it into a section for re-use. On larger projects
+this might be a Partial:
+
+.. code-block:: html
+   :linenos:
+
+   <f:section name="FieldErrors">
+       <f:form.validationResults for="{propertyPath}">
+           <f:for each="{validationResults.flattenedErrors}" as="errors">
+               <f:for each="{errors}" as="error">
+                   <li>{error.code}: {error}</li>
+               </f:for>
+           </f:for>
+       </f:form.validationResults>
+   </f:section>
+
+This section can be used like:
+
+.. code-block:: html
+   :linenos:
+
+   <f:form.textfield property="companyName" />
+   {f:render(section: 'FieldErrors', arguments: {
+       propertyPath: 'address.companyName'
+   })}
+
+Handling existing invalid records
+---------------------------------
+
+In some circumstances your system might have an invalid record. Right now it's not
+possible to edit this record with `editAction` as Extbase will validate the record.
+
+Therefore the `@ignorevalidation` annotation can be added to the action::
+
+    /**
+     * @ignorevalidation $address
+     */
+    public function editAction(Address $address)
+    {
+        $this->view->assign('address', $address);
+    }
+
+This way Extbase will ignore raised validation issues and we are ready to go to edit
+the record.

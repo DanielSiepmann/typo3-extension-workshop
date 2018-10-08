@@ -65,6 +65,8 @@ See :ref:`t3coreapi:extension-files-locations` in TYPO3 Core API Reference.
 Further resources
 -----------------
 
+* https://extensions.typo3.org/about-extension-repository/what-are-extensions/
+
 * :ref:`t3coreapi:extension-architecture` in TYPO3 Core API Reference.
 
 * :ref:`t3coreapi:extension-files-locations` in TYPO3 Core API Reference.

@@ -42,6 +42,9 @@ class AddressController extends ActionController
         $this->view->assign('addresses', $this->addressRepository->findAll());
     }
 
+    /**
+     * @ignorevalidation $address
+     */
     public function editAction(Address $address)
     {
         $this->view->assign('address', $address);

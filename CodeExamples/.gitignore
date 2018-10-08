@@ -1,3 +1,4 @@
-/private/
-/public/
-/vendor/
+/public
+/vendor
+/app/*
+!/app/typo3conf/sites/default/config.yaml

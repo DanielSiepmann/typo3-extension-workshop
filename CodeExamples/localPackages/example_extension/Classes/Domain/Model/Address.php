@@ -27,6 +27,7 @@ class Address extends AbstractEntity
 {
     /**
      * @var string
+     * @validate NotEmpty
      */
     protected $companyName;
 
@@ -42,6 +43,7 @@ class Address extends AbstractEntity
 
     /**
      * @var string
+     * @validate RegularExpression(regularExpression = '/^[0-9]{5}$/')
      */
     protected $zip;
 

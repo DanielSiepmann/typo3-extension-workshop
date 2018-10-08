@@ -39,3 +39,4 @@ build custom extensions:
    Configuration
    CustomRecords
    UpdatingRecords
+   Outlook

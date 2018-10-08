@@ -15,6 +15,9 @@
             </label>
             <br>
             <f:form.textfield property="{propertyName}" id="{propertyName}" />
+            {f:render(section: 'FieldErrors', arguments: {
+                propertyPath: 'address.{propertyName}'
+            })}
             <br>
         </p>
     </f:for>
@@ -22,3 +25,13 @@
     <br>
     <f:form.submit value="Update" />
 </f:form>
+
+<f:section name="FieldErrors">
+    <f:form.validationResults for="{propertyPath}">
+        <f:for each="{validationResults.flattenedErrors}" as="errors">
+            <f:for each="{errors}" as="error">
+                {f:translate(id: 'error.{propertyPath}.{error.code}', default: error.code)}
+            </f:for>
+        </f:for>
+    </f:form.validationResults>
+</f:section>

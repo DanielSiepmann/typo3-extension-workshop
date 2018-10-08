@@ -13,5 +13,8 @@
         "psr-4": {
             "Workshop\\ExampleExtension\\": "Classes"
         }
+    },
+    "require": {
+        "typo3/cms-core": "*"
     }
 }
