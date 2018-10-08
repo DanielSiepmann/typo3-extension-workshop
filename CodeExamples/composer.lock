@@ -3977,10 +3977,11 @@
             "dist": {
                 "type": "path",
                 "url": "localPackages/example_extension",
-                "reference": "041dbef29fa3c6cecf8bb21f203da0ea7cf11cb8",
+                "reference": "9c0990fe6a3271225e01dc16e429eaeee8cb0037",
                 "shasum": null
             },
             "require": {
+                "php": ">=7.2.0",
                 "typo3/cms-core": "*"
             },
             "type": "typo3-cms-extension",

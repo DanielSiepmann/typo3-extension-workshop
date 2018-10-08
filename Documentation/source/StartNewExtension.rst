@@ -31,10 +31,6 @@ or via composer.
 Oldschool
 ^^^^^^^^^
 
-.. todo::
-
-   Add note about autoloading.
-
 Copy the extension to :file:`typo3conf/ext/`, and head over to *Extension Manager* to
 activate the extension.
 

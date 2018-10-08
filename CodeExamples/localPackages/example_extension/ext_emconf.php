@@ -11,8 +11,8 @@ $EM_CONF['example_extension'] = [
     'author_company' => 'Codappix',
     'constraints' => [
         'depends' => [
-            'typo3' => '8.7.0-8.7.999',
-            'php' => '7.0.0-7.2.999',
+            'php' => '7.2.0-7.2.999',
+            'typo3' => '8.7.0-9.5.999',
         ],
     ],
     'autoload' => [

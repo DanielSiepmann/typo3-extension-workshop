@@ -1,3 +1,5 @@
+.. _views:
+
 Views
 =====
 
@@ -48,16 +50,17 @@ Configuration
 -------------
 
 Awesome, we now do no longer need to touch PHP code to change the output, we can use
-Fluid and an Integrator or Frontendler is able to change something.
+Fluid and an Integrator is able to change something.
 
 But they should be able to change templates in their own extension, e.g. a
-"sitepackage". We will see how to do this in next chapter "Configuration".
+"sitepackage". We will see how to do this in next chapter :ref:`configuration`,
+especially :ref:`configuration-view-paths`.
 
 Sections
 --------
 
 If templates grow in size, we need to add some structure. One way is to use sections
-inside a single Template. A section is like a PHP method or function and can be
+inside a single template. A section is like a PHP method or function and can be
 called with arguments:
 
 .. code-block:: html
@@ -114,12 +117,12 @@ Assigned variables can be accessed inside Fluid with curly braces:
 ViewHelper
 ----------
 
-To make Templates more flexible, ViewHelpers are available. They are custom HTML-Tags
-available inside via template engine.
+To make templates more flexible, ViewHelpers are available. They are custom HTML-Tags
+available inside the template engine.
 TYPO3 and Fluid already ship some ViewHelpers, but you can provide own ViewHelpers.
 
-ViewHelpers always live in a Namespace, e.g. ``TYPO3\CMS\Fluid\ViewHelpers`` or
-``Workshop\\ExampleExtension\\ViewHelpers``.
+ViewHelpers always live in a Namespace, e.g. ``\TYPO3\CMS\Fluid\ViewHelpers`` or
+``\Workshop\ExampleExtension\ViewHelpers``.
 
 You can either register these namespaces globally, or inside the templates via
 ``{namespace wee=Workshop\ExampleExtension\ViewHelpers}``.
@@ -144,17 +147,17 @@ notation":
 .. code-block:: html
    :linenos:
 
-   {f:format.date(date: 'now')}
+   {f:format.date(date: 'midnight')}
 
 It's also possible to chain ViewHelpers in both ways:
 
 .. code-block:: html
    :linenos:
 
-   {f:format.date(date: 'now') -> f:format.raw()}
+   {f:format.date(date: 'midnight') -> f:format.raw()}
 
    <f:format.raw>
-      {f:format.date(date: 'now')}
+      {f:format.date(date: 'midnight')}
    </f:format.raw>
 
    <f:format.raw>
@@ -171,7 +174,7 @@ Partials and Layouts
 We already saw sections to make a single template easier to manage.
 For re-using parts between multiple templates there are Partials.
 
-Partials are like Templates and can be rendered via:
+Partials are like templates and can be rendered via:
 
 .. code-block:: html
    :linenos:

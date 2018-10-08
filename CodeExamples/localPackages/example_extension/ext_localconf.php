@@ -19,4 +19,28 @@
             'Address' => 'update'
         ]
     );
+
+    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig('
+        mod {
+            wizards {
+                newContentElement {
+                    wizardItems {
+                        plugins {
+                            elements {
+                                exampleElement {
+                                    iconIdentifier = content-coffee
+                                    title = Example title
+                                    description = Example Description
+                                    tt_content_defValues {
+                                        CType = list
+                                        list_type = exampleextension_pluginkey
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    ');
 })();

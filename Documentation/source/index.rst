@@ -12,7 +12,7 @@ Some "rules" for the workshop
 * We will not call APIs without checking out their code. Always understand what your
   own code does.
 
-* I'm using the latest TYPO3 CMS 8 LTS, most of the parts are so basic, they should
+* I'm using the latest TYPO3 CMS 9 LTS, most of the parts are so basic, they should
   work from 4.5 onwards.
 
 * Ask questions as soon as possible. This way we have the context.

@@ -1,8 +1,12 @@
+.. _custom-records:
+
 Custom records
 ==============
 
 The basics are behind us, now let's get deeper into the system and create a new
 record type, like ``tt_address`` which can be displayed through our plugin.
+
+.. _custom-records-tca:
 
 TCA
 ---
@@ -24,7 +28,7 @@ information are available there.
 
 One thing to notice is that Extbase uses "Convention over Configuration". While we
 can configure Extbase to map a Model to a specific database table, we can auto match
-them. For a Model ``Workshop\ExampleExtension\Domain\Model\Address``, the database
+them. For a Model ``\Workshop\ExampleExtension\Domain\Model\Address``, the database
 table would be ``tx_exampleextension_domain_model_address``. So this will be
 our database table name for our example.
 
@@ -62,7 +66,7 @@ ext_tables.sql
 
 Once the TCA is provided, we need to create the table in our Database.
 Each extension can provide a :file:`ext_tables.sql` in the root directory. Within the
-install tool and TYPO3 Console, you can update the database schema to match the
+admin tools and TYPO3 Console, you can update the database schema to match the
 current necessary structure of all extensions.
 
 If multiple extensions adjust the same field, the last one in load order is used.
@@ -71,6 +75,37 @@ The example :file:`ext_tables.sql` is:
 
 .. literalinclude:: ../../CodeExamples/localPackages/example_extension/ext_tables.sql
    :language: sql
+
+All further TYPO3 specific fields, like ``uid`` and ``pid`` are added by TYPO3 CMS since v9.
+
+Before v9, the file would look like:
+
+.. code-block:: sql
+   :linenos:
+
+   CREATE TABLE tx_exampleextension_domain_model_address (
+       uid int(11) unsigned NOT NULL auto_increment,
+       pid int(11) unsigned DEFAULT '0' NOT NULL,
+
+       crdate int(11) unsigned DEFAULT '0' NOT NULL,
+       cruser_id int(11) unsigned DEFAULT '0' NOT NULL,
+       tstamp int(11) unsigned DEFAULT '0' NOT NULL,
+       hidden tinyint(3) unsigned DEFAULT '0' NOT NULL,
+       deleted tinyint(3) unsigned DEFAULT '0' NOT NULL,
+       starttime int(11) unsigned DEFAULT '0' NOT NULL,
+       endtime int(11) unsigned DEFAULT '0' NOT NULL,
+
+       company_name varchar(255) DEFAULT '' NOT NULL,
+       street varchar(255) DEFAULT '' NOT NULL,
+       house_number varchar(255) DEFAULT '' NOT NULL,
+       zip varchar(255) DEFAULT '' NOT NULL,
+       city varchar(255) DEFAULT '' NOT NULL,
+       country varchar(255) DEFAULT '' NOT NULL,
+
+       PRIMARY KEY (uid),
+       KEY parent (pid)
+   );
+
 
 Model
 -----

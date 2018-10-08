@@ -16,8 +16,7 @@ Still Plugins are a very typical thing to bring in features to your website.
 The Plugin
 ----------
 
-We will start with a very basic plugin that will only list some TYPO3 records, e.g.
-`fe_users`.
+We will start with a very basic plugin that will display a hardcoded string.
 
 Register Plugin in Backend
 --------------------------

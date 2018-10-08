@@ -1,3 +1,5 @@
+.. _configuration:
+
 Configuration
 =============
 
@@ -45,12 +47,12 @@ TypoScript
 
 TypoScript and Flexforms are merged by Extbase, so you do not have to do any
 additional work and combine both. They are available as Variable ``{settings}`` in
-all Templates. Also inside the Controller they are available as array in
+all templates. Also inside the Controller they are available as array in
 ``$this->settings`` out of the box.
 
 .. admonition:: Task
 
-   Add some settings and print them in Template and Controller.
+   Add some settings and print them in template and controller.
 
 The configuration via TypoScript has to be located at a specific path:
 
@@ -93,6 +95,20 @@ book.
    The whole ``settings`` array is passed into all templates, layouts and partials.
    This way it's possible for integrators to provide arbitary information.
 
+   E.g. introduce a new namespace::
+
+      plugin {
+          tx_exampleextension {
+              settings {
+                  codappix {
+                      pageUids {
+                          detail = {$pageUids.exampleextension.detail}
+                      }
+                  }
+              }
+          }
+      }
+
 Also it's possible to insert a plugin via TypoScript. In that case the settings can
 be provided only for that instance:
 
@@ -113,9 +129,10 @@ be provided only for that instance:
 Flexforms
 ^^^^^^^^^
 
-Flexforms are like TCA, which will be covered later on. The format is XML instead of
-PHP and saved inside the database field ``pi_flexform`` of the ``tt_content`` record.
-This way editors are able to adjust provided settings within a plugin record.
+Flexforms are like TCA, which will be covered at :ref:`custom-records-tca` section of
+:ref:`custom-records`. The format is XML instead of PHP and saved inside the database
+field ``pi_flexform`` of the ``tt_content`` record.  This way editors are able to
+adjust provided settings within a plugin record.
 
 Custom
 ^^^^^^
@@ -127,7 +144,7 @@ When to use which
 -----------------
 
 The Flexform approach provides the best UX as it uses the known UI of TYPO3 inside a
-record.
+record. It should be used if the setting is plugin instance related.
 
 The TypoScript provided the best UX when integrators have to deploy configuration or
 configuration is necessary on multiple pages. Also if the plugin is inserted directly
@@ -136,3 +153,77 @@ via TypoScript.
 The PHP approach is best suited for instance wide configuration, which nearly never
 exists. Things like API Keys might depend on the current Domain or Website, and there
 can be multiple in a single TYPO3 instance.
+
+.. _configuration-content-wizard:
+
+Adding Content Wizard for our Plugin
+------------------------------------
+
+So far we do not have any configuration. But we can use PageTSConfig to make live
+easier for editors.
+
+Right now an editor has to insert a new "Insert Plugin" content record and choose our
+plugin. We can provide a Configuration to make our Plugin available via the "Create
+new content element" wizard.
+
+.. admonition:: Task
+
+   Add the new Plugin to content element wizard.
+
+Within :file:`ext_localconf.php` we add the following::
+
+   \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig('
+       mod {
+           wizards {
+               newContentElement {
+                   wizardItems {
+                       plugins {
+                           elements {
+                               exampleElement {
+                                   iconIdentifier = content-coffee
+                                   title = Example title
+                                   description = Example Description
+                                   tt_content_defValues {
+                                       CType = list
+                                       list_type = exampleextension_pluginkey
+                                   }
+                               }
+                           }
+                       }
+                   }
+               }
+           }
+       }
+   ');
+
+This will add the given PageTS as default to global configuration. Within the TS we
+define a new element ``exampleElement`` with icon, title and description. The important
+part is, that we can define default values (``defValues``) for the creation. This way
+we can pre select the plugin.
+
+See: https://docs.typo3.org/typo3cms/TSconfigReference/PageTsconfig/Mod.html#wizards
+
+.. _configuration-view-paths:
+
+Adjusting view paths
+--------------------
+
+In :ref:`views` we covered the conventions for paths. However sometimes you need to
+change these paths. E.g. if you exchange a Partial or template.
+
+This can be done via TypoScript, the same way as for ``FLUIDTEMPLATE`` cObject:
+
+.. code-block:: typoscript
+   :linenos:
+
+   plugin {
+       tx_exampleextension {
+           view {
+               templateRootPaths {
+                   10 = EXT:sitepackage/Resources/Plugins/ExampleExtension/Templates/
+               }
+           }
+       }
+   }
+
+See: https://docs.typo3.org/typo3cms/TyposcriptReference/ContentObjects/Fluidtemplate/Index.html

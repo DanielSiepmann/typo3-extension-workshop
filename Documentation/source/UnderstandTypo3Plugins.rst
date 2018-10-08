@@ -20,7 +20,8 @@ The TYPO3 Backend needs to provide a new Plugin to the editor, this is done with
 The API configures the TCA (=Table Configuration Array) for ``tt_content``. And adds
 the new plugin as ``list_type``.
 
-We can go further on the content element during the Topic *Configuration*.
+We can go further on the content element during the Topic :ref:`configuration`,
+especially :ref:`configuration-content-wizard`.
 
 TYPO3 Frontend rendering
 ------------------------
@@ -50,4 +51,4 @@ box. Also all "actions" must have the suffix ``Action`` and need to be public.
 As soon as an action returns a string, this will be the output. If nothing is
 returned, which is ``null`` Extbase will try to find and render a template matching
 our current controller and action. This is done at
-``TYPO3\CMS\Extbase\Mvc\Controller\ActionController::callActionMethod``.
+``\TYPO3\CMS\Extbase\Mvc\Controller\ActionController::callActionMethod``.
