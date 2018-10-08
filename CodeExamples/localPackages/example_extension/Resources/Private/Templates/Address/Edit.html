@@ -9,22 +9,26 @@
         4: 'city',
         5: 'country'
     }" as="propertyName">
-        <p>
-            <label for="{propertyName}">
-                {f:translate(id: 'labels.{propertyName}')}
-            </label>
-            <br>
-            <f:form.textfield property="{propertyName}" id="{propertyName}" />
-            {f:render(section: 'FieldErrors', arguments: {
-                propertyPath: 'address.{propertyName}'
-            })}
-            <br>
-        </p>
+        {f:render(section: 'Field', arguments: {
+            propertyName: propertyName
+        })}
     </f:for>
 
     <br>
     <f:form.submit value="Update" />
 </f:form>
+
+<f:section name="Field">
+    <p>
+        <label for="{propertyName}">{f:translate(id: 'labels.{propertyName}')}</label>
+        <br>
+        <f:form.textfield property="{propertyName}" id="{propertyName}" />
+        {f:render(section: 'FieldErrors', arguments: {
+            propertyPath: 'address.{propertyName}'
+        })}
+        <br>
+    </p>
+</f:section>
 
 <f:section name="FieldErrors">
     <f:form.validationResults for="{propertyPath}">

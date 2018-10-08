@@ -28,8 +28,8 @@ use Workshop\ExampleExtension\Domain\Repository\AddressRepository;
 class AddressController extends ActionController
 {
     /**
-    * @var AddressRepository
-    */
+     * @var AddressRepository
+     */
     protected $addressRepository;
 
     public function __construct(AddressRepository $addressRepository)

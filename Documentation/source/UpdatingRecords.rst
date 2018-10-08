@@ -9,16 +9,16 @@ only need :file:`ext_tables.sql` the TCA and TypoScript for rendering.
 Extbase is needed if you provide interaction to the user, e.g. updating or adding
 records.
 
-Even that can nowadays achieved using the system extension "Form". Still we will
+Even that can nowadays be achieved using the system extension "Form". Still we will
 cover how to update a record next.
 
 We need a form where we can adjust the values of the record, e.g. change the
-companies name.
+company name.
 
 Therefore we will add a new ``editAction()``. This will receive a single ``Address``
-for editing and provides the form. We also will add an ``updateAction()`` which
-receives a single ``Address``. This action is the target of the submit form and will
-update the database record.
+for editing and provides the form. We also add an ``updateAction()`` which receives a
+single ``Address``. This action is the target of the submit form and will update the
+database record.
 
 To start editing an address, we will add an link from :file:`index.html` to
 ``editAction()``.
@@ -50,7 +50,7 @@ Creating Forms
    Create a form which will show the current values of a single ``Address`` to the
    user.
 
-TYPO3 also provides ViewHelpers to create forms. Of course you could create form with
+TYPO3 also provides ViewHelpers to create forms. Of course you could create forms with
 pure HTML, but TYPO3 / Fluid adds some security aspects and makes things easier.
 
 E.g. a proper validation that forms were not manipulated are added out of the box.
@@ -229,6 +229,8 @@ Germany. One or more leading 0 are allowed, we therefore will not use the PHP ty
     */
    protected $zip;
 
+Also see: https://docs.typo3.org/typo3cms/extensions/core/Changelog/9.3/Feature-83167-ReplaceValidateWithTYPO3CMSExtbaseAnnotationValidate.html
+
 Display validation errors
 -------------------------
 
@@ -274,9 +276,10 @@ Handling existing invalid records
 ---------------------------------
 
 In some circumstances your system might have an invalid record. Right now it's not
-possible to edit this record with `editAction` as Extbase will validate the record.
+possible to edit this record with ``editAction()`` as Extbase will validate the
+record.
 
-Therefore the `@ignorevalidation` annotation can be added to the action::
+Therefore the ``@ignorevalidation`` annotation can be added to the action::
 
     /**
      * @ignorevalidation $address

@@ -106,7 +106,6 @@ Before v9, the file would look like:
        KEY parent (pid)
    );
 
-
 Model
 -----
 
@@ -125,7 +124,7 @@ Each model is a PHP class structure like:
 .. literalinclude:: ../../CodeExamples/localPackages/example_extension/Classes/Domain/Model/Address.php
    :language: php
    :linenos:
-   :lines: 1-4,24-32,63-66,87
+   :lines: 1-4,24-29,31-32,64-68,119
 
 Repository
 ----------
@@ -178,7 +177,7 @@ to the view:
    :lines: 28-29,40-43,66
 
 The ``AddressRepository`` extends the base ``Repository`` class and inherits some
-methods, e.g. ``findAll``.
+methods, e.g. ``findAll()``.
 
 Template
 --------
