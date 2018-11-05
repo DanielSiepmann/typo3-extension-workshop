@@ -72,8 +72,16 @@ Write necessary Code
 
    Remove all PHP Errors, step by step.
 
-If we insert the plugin as content element and open the site, we should see the
-following error message:
+If we insert the plugin as content element and open the site, we should see an error
+message. This message is not helpful, so we will switch to development context within
+the installation / maintenance tool. Also we will add the following TypoScript setup
+for our local development instance:
+
+.. code-block:: typoscript
+
+   config.contentObjectExceptionHandler = 0
+
+Afterwards we should see the following error message:
 
    Could not analyse class: "Workshop\\ExampleExtension\\Controller\\ExampleController" maybe not loaded or no autoloader? Class Workshop\\ExampleExtension\\Controller\\ExampleController does not exist 
 
