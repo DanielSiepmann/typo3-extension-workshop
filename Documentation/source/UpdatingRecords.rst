@@ -165,6 +165,13 @@ This is also just one line within a controller::
        'Update successfully'
    );
 
+Adding alone would not work, so we have to display thus messages. This is done within
+the View with an ViewHelper:
+
+.. code-block:: html
+
+   <f:flashMessages />
+
 Validation
 ----------
 
