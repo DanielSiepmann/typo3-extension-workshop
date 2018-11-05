@@ -12,11 +12,11 @@ TYPO3 is built only with extensions, there is no framework below. All features a
 assigned to a specific extension. This way it's possible to build the TYPO3 that fits
 the project needs.
 
-An extension is something like `frontend` or `backend`, which provides the TYPO3
-frontend or backend. It can also be `extbase` or `fluid` which provides and Framework
-to build further extensions or an template engine.
+An extension is something like ``frontend`` or ``backend``, which provides the TYPO3
+frontend or backend. It can also be ``extbase`` which works as an Framework
+to build further extensions or ``fluid`` an template engine.
 
-Nowadays most installations also have a `site_` or `sitepackage` extensions, which
+Nowadays most installations also have a ``site_`` or ``sitepackage`` extensions, which
 encapsulates the systems configuration and resources like assets and templates. Thus
 an TYPO3 extension is the same as an composer package.
 

@@ -1,12 +1,16 @@
 Start new extension
 ===================
 
+We will start with the simplest example ``Hello World``. Once we understood the
+basics, we will create an "address" extension to manage a custom record.
+
 Necessary files
 ---------------
 
-The only necessary file is :file:`ext_emconf.php`. This configures the *Extension
-Manager*. Without this file, the Extension Manager would not recognize the extension
-and would prevent installation.
+Extensions consists of a folder and the single necessary file, which is
+:file:`ext_emconf.php`. This configures the *Extension Manager*. Without this file,
+the Extension Manager would not recognize the extension and would prevent
+installation.
 
 .. literalinclude:: ../../CodeExamples/localPackages/example_extension/ext_emconf.php
    :language: php
@@ -15,7 +19,9 @@ See :ref:`t3coreapi:extension-declaration` in TYPO3 Core API Reference.
 
 .. admonition:: Task
 
-   So let's create a new folder and add the file.
+   So let's create a new folder and add the file within the folder.
+
+In this example I'll use :file:`example_extension` as folder name.
 
 Install extension
 -----------------

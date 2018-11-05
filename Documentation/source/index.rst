@@ -1,7 +1,7 @@
 Welcome to TYPO3 Extension Workshop
 ===================================
 
-This workshop is about the basics of TYPO3 extensions.
+This workshop is about the basics of TYPO3 extensions, using Extbase and Fluid.
 
 Some "rules" for the workshop
 -----------------------------
@@ -16,6 +16,8 @@ Some "rules" for the workshop
   work from 4.5 onwards.
 
 * Ask questions as soon as possible. This way we have the context.
+
+* Tell me if you want less details.
 
 * All materials are available on Github: https://github.com/DanielSiepmann/typo3-extension-workshop
 

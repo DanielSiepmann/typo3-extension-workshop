@@ -95,7 +95,7 @@ book.
    The whole ``settings`` array is passed into all templates, layouts and partials.
    This way it's possible for integrators to provide arbitary information.
 
-   E.g. introduce a new namespace::
+   E.g. introduce a new namespace ``codappix`` with project specific settings::
 
       plugin {
           tx_exampleextension {
@@ -202,6 +202,8 @@ part is, that we can define default values (``defValues``) for the creation. Thi
 we can pre select the plugin.
 
 See: https://docs.typo3.org/typo3cms/TSconfigReference/PageTsconfig/Mod.html#wizards
+
+Available TYPO3 Icons can be found here: https://typo3.github.io/TYPO3.Icons/
 
 .. _configuration-view-paths:
 

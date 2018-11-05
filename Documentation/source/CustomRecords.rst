@@ -17,7 +17,7 @@ TCA
 
 Before we can do anything with Extbase, we need to configure TYPO3. The TCA (=Table
 Configuration Array) contains configuration for each database table. TYPO3 will
-generate the list view and edit forms from this configuration.
+generate the list view and edit forms within the Backend from this configuration.
 
 Extbase uses this configuration for mapping and database queries, together with
 relation handling.
@@ -49,6 +49,9 @@ Our new record will be an address record with the following fields:
 
 * Country
 
+Once we finished the TCA, we already can create new records. Only saving them does
+not work, as we didn't setup the database yet.
+
 .. note::
 
    By default new records are only allowed on pages of type "Folder".
@@ -75,6 +78,7 @@ The example :file:`ext_tables.sql` is:
 
 .. literalinclude:: ../../CodeExamples/localPackages/example_extension/ext_tables.sql
    :language: sql
+   :linenos:
 
 All further TYPO3 specific fields, like ``uid`` and ``pid`` are added by TYPO3 CMS since v9.
 
@@ -106,6 +110,9 @@ Before v9, the file would look like:
        KEY parent (pid)
    );
 
+We should now be able to create and save new records within the TYPO3 backend. Also
+existing records should be listed, searchable and editable.
+
 Model
 -----
 
@@ -119,7 +126,7 @@ our case this has to match the table name and is called
 ``Workshop\ExampleExtension\Domain\Model\Address`` and located at
 :file:`Classes/Domain/Model/Address.php`.
 
-Each model is a PHP class structure like:
+Each model is a PHP class, structured like:
 
 .. literalinclude:: ../../CodeExamples/localPackages/example_extension/Classes/Domain/Model/Address.php
    :language: php
@@ -213,3 +220,26 @@ We could also configure the pid via TypoScript:
        }
    }
 
+Add new plugin
+--------------
+
+You might have noticed that the above controller is not the same as in our first
+example. We therefore can add the controller to the existing plugin or add a new
+plugin for this controller.
+
+I would recommend to create a new plugin, to separate things. The process is not
+explained again. If you struggle, take a look at :ref:`add-first-plugin` again.
+
+Check everything
+----------------
+
+Once everything is set up, the following should be possible:
+
+* Create, edit, search and delete records within TYPO3 Backend.
+
+* List available records via Frontend Plugin.
+
+Sounds like a lot of work for a small benefit? Right. If all you have to achieve is
+this, you should not use Extbase but "pure" TYPO3. But we will extend the Extension
+in the next step. Also this is about a first simple Extbase Extension, not how to use
+TYPO3 the right way.

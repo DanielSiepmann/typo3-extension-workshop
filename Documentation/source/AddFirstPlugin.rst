@@ -1,3 +1,5 @@
+.. _add-first-plugin:
+
 Add first Plugin
 ================
 
@@ -16,7 +18,7 @@ Still Plugins are a very typical thing to bring in features to your website.
 The Plugin
 ----------
 
-We will start with a very basic plugin that will display a hardcoded string.
+As mentioned, we will start with a simple example plugin to display "Hello World".
 
 Register Plugin in Backend
 --------------------------
