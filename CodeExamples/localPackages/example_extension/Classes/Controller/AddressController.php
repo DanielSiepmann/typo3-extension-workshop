@@ -22,6 +22,7 @@ namespace Workshop\ExampleExtension\Controller;
  */
 
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
+use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
 use Workshop\ExampleExtension\Domain\Model\Address;
 use Workshop\ExampleExtension\Domain\Repository\AddressRepository;
 
@@ -55,7 +56,10 @@ class AddressController extends ActionController
         $this->addressRepository->update($address);
 
         $this->addFlashMessage(
-            $address->getCompanyName() . ' was updated.',
+            LocalizationUtility::translate('flashSuccess', 'ExampleExtension', [
+                'companyName' => $address->getCompanyName(),
+                'street' => $address->getStreet(),
+            ]),
             'Update successfully'
         );
         $this->redirect('index');

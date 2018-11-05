@@ -30,6 +30,10 @@
             <trans-unit id="error.address.zip.1221565130" xml:space="preserve">
                 <source>Please provide a valid ZIP consisting of 5 digits.</source>
             </trans-unit>
+
+            <trans-unit id="flashSuccess" xml:space="preserve">
+                <source>Update des Datensatzes %1$s war Erfolgreich.</source>
+            </trans-unit>
         </body>
     </file>
 </xliff>
