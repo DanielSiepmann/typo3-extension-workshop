@@ -30,7 +30,10 @@ One thing to notice is that Extbase uses "Convention over Configuration". While 
 can configure Extbase to map a Model to a specific database table, we can auto match
 them. For a Model ``\Workshop\ExampleExtension\Domain\Model\Address``, the database
 table would be ``tx_exampleextension_domain_model_address``. So this will be
-our database table name for our example.
+our database table name for our example. Also TYPO3 uses convention over
+configuration, so the TCA for this table is placed within
+:file:`Configuration/TCA/tx_exampleextension_domain_model_address.php` within our
+Extension.
 
 Also each property within the model is written lowerCamelCase, while the database
 columns are written snake_case.
