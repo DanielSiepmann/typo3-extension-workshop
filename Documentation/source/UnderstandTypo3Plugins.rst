@@ -39,8 +39,8 @@ Also the configuration of callable controller actions and caching is stored in
 The controller
 --------------
 
-TypoScript will call Extbase, which will figure out to call the ``exampleAction``
-method of our ``ExampleController``, thanks to our frontend rendering configuration.
+TypoScript will call Extbase, which will figure out to call the ``indexAction``
+method of our ``AddressController``, thanks to our frontend rendering configuration.
 
 The default action is always the first action of the first controller in the
 configuration. Multiple actions will be shown later.

@@ -70,7 +70,7 @@ The configuration via TypoScript has to be located at a specific path:
 
    // For a specific frontend plugin of the extension
    plugin {
-       tx_exampleextension_pluginkey {
+       tx_exampleextension_addresspluginkey {
            settings {
                // The configuration goes here
            }

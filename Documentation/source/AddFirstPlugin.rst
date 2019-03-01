@@ -37,8 +37,8 @@ This is done with the following code in file
    (function () {
        \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
            'Workshop.ExampleExtension',
-           'pluginkey',
-           'Example Plugin'
+           'Address',
+           'Address Plugin'
        );
    })();
 
@@ -57,9 +57,9 @@ configure the plugin in :file:`ext_localconf.php`:
    (function () {
       \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
          'Workshop.ExampleExtension',
-         'pluginkey',
+         'Address',
          [
-               'Example' => 'example'
+               'Address' => 'index'
          ]
       );
    })();
@@ -83,28 +83,37 @@ for our local development instance:
 
 Afterwards we should see the following error message:
 
-   Could not analyse class: "Workshop\\ExampleExtension\\Controller\\ExampleController" maybe not loaded or no autoloader? Class Workshop\\ExampleExtension\\Controller\\ExampleController does not exist 
+   Could not analyse class: "Workshop\\ExampleExtension\\Controller\\AddressController" maybe not loaded or no autoloader? Class Workshop\\ExampleExtension\\Controller\\AddressController does not exist 
 
 This tells us that everything so far has worked as expected. TYPO3 tries to call our
-*ExampleController*, which just does not exist yet.
+*AddressController*, which just does not exist yet.
 
 So let's create the controller with the following code in
-:file:`Classes/Controller/ExampleController.php`:
+:file:`Classes/Controller/AddressController.php`:
 
-.. literalinclude:: ../../CodeExamples/localPackages/example_extension/Classes/Controller/ExampleController.php
-   :language: php
-   :lines: 1-27,36
+.. code-block:: php
+
+   namespace Workshop\ExampleExtension\Controller;
+
+   use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
+
+   class AddressController extends ActionController
+   {
+   }
 
 The error message should change to:
 
-    An action "exampleAction" does not exist in controller "Workshop\\ExampleExtension\\Controller\\ExampleController".
+    An action "indexAction" does not exist in controller "Workshop\\ExampleExtension\\Controller\\AddressController".
 
 Yeah, we fixed the error to get the next one. Even if our class exists, the
 configured default action does not exist yet, so let's create it.
 
-.. literalinclude:: ../../CodeExamples/localPackages/example_extension/Classes/Controller/ExampleController.php
-   :language: php
-   :lines: 26-29,34-
+.. code-block:: php
+
+   public function indexAction()
+   {
+       return 'Hello world!';
+   }
 
 We now should see "Hello world!" in our frontend.
 

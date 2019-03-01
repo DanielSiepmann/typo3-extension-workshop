@@ -3,14 +3,6 @@
 (function () {
     \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
         'Workshop.ExampleExtension',
-        'pluginkey',
-        [
-            'Example' => 'example'
-        ]
-    );
-
-    \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
-        'Workshop.ExampleExtension',
         'Address',
         [
             'Address' => 'index, edit, update'
@@ -27,13 +19,13 @@
                     wizardItems {
                         plugins {
                             elements {
-                                exampleElement {
-                                    iconIdentifier = content-coffee
-                                    title = Example title
-                                    description = Example Description
+                                address {
+                                    iconIdentifier = content-marker
+                                    title = Addresses
+                                    description = Allows to List and edit addresses
                                     tt_content_defValues {
                                         CType = list
-                                        list_type = exampleextension_pluginkey
+                                        list_type = exampleextension_address
                                     }
                                 }
                             }

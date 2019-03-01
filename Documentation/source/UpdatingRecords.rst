@@ -37,7 +37,7 @@ edit a record, you could use the following:
    :language: html
    :linenos:
    :dedent: 4
-   :lines: 9
+   :lines: 10
 
 The ViewHelper generates a link, thanks to the current plugin context, all arguments
 are prefixed with the plugin namespace.

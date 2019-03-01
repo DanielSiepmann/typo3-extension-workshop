@@ -32,7 +32,7 @@ Paths
 
 The path to the template of an controller action is
 :file:`example_extension/Resources/Private/Templates/ControllerName/ActionName.html`,
-which in our example would be: :file:`example_extension/Resources/Private/Templates/Example/Example.html`,
+which in our example would be: :file:`example_extension/Resources/Private/Templates/Address/Index.html`,
 
 .. admonition:: Task
 

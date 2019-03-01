@@ -199,7 +199,7 @@ With our records in our template, we can iterate over them to display them.
 .. literalinclude:: ../../CodeExamples/localPackages/example_extension/Resources/Private/Templates/Address/Index.html
    :language: html
    :linenos:
-   :lines: 1-7,10
+   :lines: 2-8,11
 
 Configure storage pid
 ---------------------
@@ -222,16 +222,6 @@ We could also configure the pid via TypoScript:
            }
        }
    }
-
-Add new plugin
---------------
-
-You might have noticed that the above controller is not the same as in our first
-example. We therefore can add the controller to the existing plugin or add a new
-plugin for this controller.
-
-I would recommend to create a new plugin, to separate things. The process is not
-explained again. If you struggle, take a look at :ref:`add-first-plugin` again.
 
 Check everything
 ----------------
